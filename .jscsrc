@@ -1,0 +1,5 @@
+{
+  "preset": "airbnb",
+  "disallowKeywordsOnNewLine": ["while"],
+  "requireKeywordsOnNewLine": ["else", "else if"]
+}

@@ -1,0 +1,17 @@
+{
+  "bitwise": false,
+  "curly": true,
+  "enforceall": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "freeze": true,
+  "futurehostile": true,
+  "globals": true,
+  "nonbsp": true,
+  "nocomma": false,
+  "nonew": true,
+  "singleGroups": false,
+  "strict": "func",
+  "undef": true
+}
+/* s/esnext: true/esversion: 6/ when jshint gets updated */
