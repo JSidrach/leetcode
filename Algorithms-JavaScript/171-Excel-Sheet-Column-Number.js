@@ -21,8 +21,9 @@ var titleToNumber = function(s) {
 
   let column = 0;
   const base = 'A'.charCodeAt(0) - 1;
+  const numCharacters = 'Z'.charCodeAt(0) - 'A'.charCodeAt(0) + 1;
 
-  for (let i = s.length - 1, exp = 1; i >= 0; --i, exp *= 26) {
+  for (let i = s.length - 1, exp = 1; i >= 0; --i, exp *= numCharacters) {
     column += (s.charCodeAt(i) - base) * exp;
   }
 

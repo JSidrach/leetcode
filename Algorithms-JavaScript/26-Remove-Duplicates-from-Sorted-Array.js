@@ -29,5 +29,5 @@ var removeDuplicates = function(nums) {
     }
   }
 
-  return i + 1;
+  return (i + 1);
 };
