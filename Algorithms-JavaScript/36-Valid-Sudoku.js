@@ -11,8 +11,6 @@ The Sudoku board could be partially filled, where empty cells are filled with th
 var isValidSudoku = function(board) {
   'use strict';
 
-  const sum = 45;
-
   for (let i = 0; i < 9; ++i) {
     let row = [false, false, false, false, false, false, false, false, false];
     let col = [false, false, false, false, false, false, false, false, false];
