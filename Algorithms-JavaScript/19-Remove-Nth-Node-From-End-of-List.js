@@ -26,7 +26,7 @@ Try to do this in one pass.
 var removeNthFromEnd = function(head, n) {
   'use strict';
 
-  const orig = {val: -1, next: head};
+  const orig = { val: -1, next: head };
   let node = orig;
   let p = orig;
 

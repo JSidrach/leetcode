@@ -21,7 +21,7 @@ Return: 1 --> 2 --> 3 --> 4 --> 5
 var removeElements = function(head, val) {
   'use strict';
 
-  const orig = {val: -1, next: head};
+  const orig = { val: -1, next: head };
   let prev = orig;
   let p = orig.next;
 

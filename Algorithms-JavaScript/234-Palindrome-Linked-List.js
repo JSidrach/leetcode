@@ -19,7 +19,7 @@ Could you do it in O(n) time and O(1) space?
 var isPalindrome = function(head) {
   'use strict';
 
-  const orig = {val: -1, next: head};
+  const orig = { val: -1, next: head };
   let length = 0;
   let p = orig;
 

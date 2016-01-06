@@ -19,7 +19,7 @@ var mergeTwoLists = function(l1, l2) {
 
   let p1 = l1;
   let p2 = l2;
-  const head = {val: null, next: null};
+  const head = { val: null, next: null };
   let p = head;
 
   while ((p1 !== null) && (p2 !== null)) {
