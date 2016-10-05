@@ -6,15 +6,15 @@ If the last word does not exist, return 0.
 Note: A word is defined as a character sequence consists of non-space characters only.
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @return {number}
  */
-var lengthOfLastWord = function(s) {
-  'use strict';
+const lengthOfLastWord = function(s) {
+  const tmp = s.trim()
+  const last = tmp.lastIndexOf(' ')
 
-  const tmp = s.trim();
-  const last = tmp.lastIndexOf(' ');
-
-  return (last === -1) ? tmp.length : (tmp.length - last - 1);
-};
+  return (last === -1) ? tmp.length : (tmp.length - last - 1)
+}

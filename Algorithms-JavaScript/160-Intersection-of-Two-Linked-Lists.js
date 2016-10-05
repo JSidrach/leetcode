@@ -20,6 +20,8 @@ You may assume there are no cycles anywhere in the entire linked structure.
 Your code should preferably run in O(n) time and use only O(1) memory.
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -33,16 +35,14 @@ Your code should preferably run in O(n) time and use only O(1) memory.
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function(headA, headB) {
-  'use strict';
-
-  let pA = headA;
-  let pB = headB;
+const getIntersectionNode = function(headA, headB) {
+  let pA = headA
+  let pB = headB
 
   while (pA !== pB) {
-    pA = (pA === null) ? headB : pA.next;
-    pB = (pB === null) ? headA : pB.next;
+    pA = (pA === null) ? headB : pA.next
+    pB = (pB === null) ? headA : pB.next
   }
 
-  return pA;
-};
+  return pA
+}

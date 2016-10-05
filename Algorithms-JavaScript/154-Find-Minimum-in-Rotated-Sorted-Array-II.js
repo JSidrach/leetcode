@@ -12,30 +12,30 @@ Find the minimum element.
 The array may contain duplicates.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var findMin = function(nums) {
-  'use strict';
-
-  let lower = 0;
-  let upper = nums.length - 1;
+const findMin = function(nums) {
+  let lower = 0
+  let upper = nums.length - 1
 
   while (lower < upper) {
-    const middle = lower + Math.floor((upper - lower) / 2);
-    const num = nums[middle];
+    const middle = lower + Math.floor((upper - lower) / 2)
+    const num = nums[middle]
 
     if (num > nums[upper]) {
-      lower = middle + 1;
+      lower = middle + 1
     }
     else if (num < nums[lower]) {
-      upper = middle;
+      upper = middle
     }
     else {
-      --upper;
+      --upper
     }
   }
 
-  return nums[lower];
-};
+  return nums[lower]
+}

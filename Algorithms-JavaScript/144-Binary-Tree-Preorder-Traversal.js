@@ -13,6 +13,8 @@ return [1,2,3].
 Note: Recursive solution is trivial, could you do it iteratively?
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -24,28 +26,26 @@ Note: Recursive solution is trivial, could you do it iteratively?
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {
-  'use strict';
-
+const preorderTraversal = function(root) {
   if (root === null) {
-    return [];
+    return []
   }
 
-  let stack = [root];
-  let output = [];
+  const stack = [root]
+  const output = []
 
   while (stack.length !== 0) {
-    const node = stack.pop();
-    output.push(node.val);
+    const node = stack.pop()
+    output.push(node.val)
 
     if (node.right !== null) {
-      stack.push(node.right);
+      stack.push(node.right)
     }
 
     if (node.left !== null) {
-      stack.push(node.left);
+      stack.push(node.left)
     }
   }
 
-  return output;
-};
+  return output
+}

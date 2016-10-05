@@ -13,18 +13,18 @@ After third round, the three bulbs are [on, off, off].
 So you should return 1, because there is only one bulb is on.
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {number}
  */
-var bulbSwitch = function(n) {
-  'use strict';
-
-  let bulbs = 0;
+const bulbSwitch = function(n) {
+  let bulbs = 0
 
   for (let i = 1; (i * i) <= n; ++i) {
-    ++bulbs;
+    ++bulbs
   }
 
-  return bulbs;
-};
+  return bulbs
+}

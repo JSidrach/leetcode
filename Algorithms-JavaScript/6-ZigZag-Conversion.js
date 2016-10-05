@@ -11,41 +11,41 @@ string convert(string text, int nRows);
 convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @param {number} numRows
  * @return {string}
  */
-var convert = function(s, numRows) {
-  'use strict';
-
+const convert = function(s, numRows) {
   if (numRows === 1) {
-    return s;
+    return s
   }
 
-  let result = '';
-  const length = s.length;
+  let result = ''
+  const length = s.length
 
   for (let i = 0; i < numRows; ++i) {
-    const stepA = (numRows - i - 1) * 2;
-    const stepB = i * 2;
-    let index = i;
-    let flag = true;
+    const stepA = (numRows - i - 1) * 2
+    const stepB = i * 2
+    let index = i
+    let flag = true
 
     if (index < length) {
-      result += s[index];
+      result += s[index]
     }
 
     while (index < length) {
-      const step = flag ? stepA : stepB;
-      flag = !flag;
-      index += step;
+      const step = flag ? stepA : stepB
+      flag = !flag
+      index += step
 
       if ((step !== 0) && (index < length)) {
-        result += s[index];
+        result += s[index]
       }
     }
   }
 
-  return result;
-};
+  return result
+}

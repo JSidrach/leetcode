@@ -6,33 +6,29 @@ For example,
 [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1]..
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function(nums) {
-  'use strict';
+const permute = (nums) => permutation(nums, 0, nums.length - 1)
 
-  return permutation(nums, 0, nums.length - 1);
-};
-
-var permutation = function(nums, i, n) {
-  'use strict';
-
+const permutation = function(nums, i, n) {
   if (i === n) {
-    return [nums.slice()];
+    return [nums.slice()]
   }
 
-  let output = [];
+  const output = []
 
   for (let j = i; j <= n; ++j) {
-    const swap = nums[i];
-    nums[i] = nums[j];
-    nums[j] = swap;
-    output.push.apply(output, permutation(nums, i + 1, n));
-    nums[j] = nums[i];
-    nums[i] = swap;
+    const swap = nums[i]
+    nums[i] = nums[j]
+    nums[j] = swap
+    output.push.apply(output, permutation(nums, i + 1, n))
+    nums[j] = nums[i]
+    nums[i] = swap
   }
 
-  return output;
-};
+  return output
+}

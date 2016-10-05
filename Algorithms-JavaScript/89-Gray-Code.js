@@ -17,19 +17,19 @@ For example, [0,2,3,1] is also a valid gray code sequence according to the above
 For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {number[]}
  */
-var grayCode = function(n) {
-  'use strict';
-
-  let output = [];
-  let length = 1 << n;
+const grayCode = function(n) {
+  const output = []
+  const length = 1 << n
 
   for (let i = 0; i < length; ++i) {
-    output.push(i ^ (i >> 1));
+    output.push(i ^ (i >> 1))
   }
 
-  return output;
-};
+  return output
+}

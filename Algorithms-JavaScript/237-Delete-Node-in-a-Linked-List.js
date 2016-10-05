@@ -4,6 +4,8 @@ Write a function to delete a node (except the tail) in a singly linked list, giv
 Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node with value 3, the linked list should become 1 -> 2 -> 4 after calling your function.
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -15,17 +17,15 @@ Supposed the linked list is 1 -> 2 -> 3 -> 4 and you are given the third node wi
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
  */
-var deleteNode = function(node) {
-  'use strict';
-
+const deleteNode = function(node) {
   if (node === null) {
-    return;
+    return
   }
   else if (node.next === null) {
-    node = null;
+    node = null
   }
   else {
-    node.val = node.next.val;
-    node.next = node.next.next;
+    node.val = node.next.val
+    node.next = node.next.next
   }
-};
+}

@@ -5,6 +5,8 @@ Follow up:
 Could you do it in O(n) time and O(1) space?
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -16,40 +18,38 @@ Could you do it in O(n) time and O(1) space?
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
-  'use strict';
-
-  const orig = { val: -1, next: head };
-  let length = 0;
-  let p = orig;
+const isPalindrome = function(head) {
+  const orig = { val: -1, next: head }
+  let length = 0
+  let p = orig
 
   while (p.next !== null) {
     p = p.next;
-    ++length;
+    ++length
   }
 
-  p = head;
-  let prev = orig;
+  p = head
+  let prev = orig
 
   for (let i = 0; i < length / 2; ++i) {
-    const tmp = p.next;
-    p.next = prev;
-    prev = p;
-    p = tmp;
+    const tmp = p.next
+    p.next = prev
+    prev = p
+    p = tmp
   }
 
   if (length % 2 === 1) {
-    prev = prev.next;
+    prev = prev.next
   }
 
   while ((p !== null) && (prev !== orig)) {
     if (p.val !== prev.val) {
-      return false;
+      return false
     }
 
-    p = p.next;
-    prev = prev.next;
+    p = p.next
+    prev = prev.next
   }
 
-  return ((p === null) && (prev === orig));
-};
+  return ((p === null) && (prev === orig))
+}

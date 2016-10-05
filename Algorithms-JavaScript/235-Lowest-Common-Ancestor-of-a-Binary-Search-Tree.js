@@ -13,6 +13,8 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
 For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -26,17 +28,15 @@ For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another exa
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
-  'use strict';
-
+const lowestCommonAncestor = function(root, p, q) {
   if (((root.val <= p.val) && (root.val >= q.val)) || ((root.val >= p.val) && (root.val <= q.val))) {
-    return root;
+    return root
   }
 
   if (root.val >= p.val) {
-    return lowestCommonAncestor(root.left, p, q);
+    return lowestCommonAncestor(root.left, p, q)
   }
   else {
-    return lowestCommonAncestor(root.right, p, q);
+    return lowestCommonAncestor(root.right, p, q)
   }
-};
+}

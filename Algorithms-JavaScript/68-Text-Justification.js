@@ -20,48 +20,48 @@ Return the formatted lines as:
 Note: Each word is guaranteed not to exceed L in length.
 */
 
+'use strict'
+
 /**
  * @param {string[]} words
  * @param {number} maxWidth
  * @return {string[]}
  */
-var fullJustify = function(words, maxWidth) {
-  'use strict';
-
-  const nWords = words.length;
-  let output = [];
+const fullJustify = function(words, maxWidth) {
+  const nWords = words.length
+  const output = []
 
   for (let i = 0; i < nWords; ++i) {
-    let j = i;
-    let lengthWordsLine = 0;
-    let nextWord = words[i];
+    let j = i
+    let lengthWordsLine = 0
+    let nextWord = words[i]
 
     while ((j < nWords) && (lengthWordsLine + (j - i) + nextWord.length) <= maxWidth) {
-      lengthWordsLine += nextWord.length;
-      nextWord = words[++j];
+      lengthWordsLine += nextWord.length
+      nextWord = words[++j]
     }
 
-    let line = '';
-    const numWordsLine = j - i;
+    let line = ''
+    const numWordsLine = j - i
 
     if ((j < nWords) && (numWordsLine > 1)) {
-      const totalSpaces = maxWidth - lengthWordsLine;
-      const minSpaces = Math.floor(totalSpaces / (numWordsLine - 1));
+      const totalSpaces = maxWidth - lengthWordsLine
+      const minSpaces = Math.floor(totalSpaces / (numWordsLine - 1))
 
       for (let k = 0; k < (numWordsLine - 1); ++k) {
-        line += words[i + k];
-        line += ' '.repeat(minSpaces + ((totalSpaces % (numWordsLine - 1) > k) ? 1 : 0));
+        line += words[i + k]
+        line += ' '.repeat(minSpaces + ((totalSpaces % (numWordsLine - 1) > k) ? 1 : 0))
       }
 
-      line += words[j - 1];
+      line += words[j - 1]
     }
     else {
-      line = words.slice(i, j).join(' ') + ' '.repeat(maxWidth - lengthWordsLine - numWordsLine + 1);
+      line = words.slice(i, j).join(' ') + ' '.repeat(maxWidth - lengthWordsLine - numWordsLine + 1)
     }
 
-    output.push(line);
-    i = j - 1;
+    output.push(line)
+    i = j - 1
   }
 
-  return output;
-};
+  return output
+}

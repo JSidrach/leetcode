@@ -8,27 +8,27 @@ Note:
 Could you optimize your algorithm to use only O(k) extra space?
 */
 
+'use strict'
+
 /**
  * @param {number} rowIndex
  * @return {number[]}
  */
-var getRow = function(rowIndex) {
-  'use strict';
-
-  let i = 1;
-  let prevRow = [];
-  let row = [];
+const getRow = function(rowIndex) {
+  let i = 1
+  let prevRow = []
+  let row = []
 
   while (i <= (rowIndex + 1)) {
-    row = [];
+    row = []
 
     for (let j = 0; j < i; j++) {
-      row.push(((j === 0) || (j === (i - 1))) ? 1 : (prevRow[j - 1] + prevRow[j]));
+      row.push(((j === 0) || (j === (i - 1))) ? 1 : (prevRow[j - 1] + prevRow[j]))
     }
 
-    ++i;
-    prevRow = row;
+    ++i
+    prevRow = row
   }
 
-  return row;
-};
+  return row
+}

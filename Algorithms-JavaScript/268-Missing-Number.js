@@ -8,19 +8,19 @@ Note:
 Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var missingNumber = function(nums) {
-  'use strict';
-
-  const n = nums.length;
-  let totalSum = (n * (n + 1)) / 2;
+const missingNumber = function(nums) {
+  const n = nums.length
+  let totalSum = (n * (n + 1)) / 2
 
   nums.forEach(function(num) {
-    totalSum -= num;
-  });
+    totalSum -= num
+  })
 
-  return totalSum;
-};
+  return totalSum
+}

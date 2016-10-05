@@ -18,6 +18,8 @@ Note:
 Bonus points if you could solve it both recursively and iteratively.
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -29,18 +31,14 @@ Bonus points if you could solve it both recursively and iteratively.
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isSymmetric = function(root) {
-  'use strict';
+const isSymmetric = function(root) {
+  return (root === null) ? true : checkBothTrees(root.left, root.right)
+}
 
-  return (root === null) ? true : checkBothTrees(root.left, root.right);
-};
-
-var checkBothTrees = function(left, right) {
-  'use strict';
-
+const checkBothTrees = function(left, right) {
   if ((left === null) || (right === null)) {
-    return (left === right);
+    return (left === right)
   }
 
-  return ((left.val === right.val) && checkBothTrees(left.right, right.left) && checkBothTrees(left.left, right.right));
-};
+  return ((left.val === right.val) && checkBothTrees(left.right, right.left) && checkBothTrees(left.left, right.right))
+}

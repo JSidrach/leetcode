@@ -12,67 +12,67 @@ You should return the following matrix:
 ]
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {number[][]}
  */
-var generateMatrix = function(n) {
-  'use strict';
+const generateMatrix = function(n) {
+  const dim = n * n
+  const matrix = new Array(n).fill().map(() => [])
+  let top = 0
+  let left = 0
+  let right = n - 1
+  let bottom = n - 1
+  let direction = 'right'
 
-  const dim = n * n;
-  let matrix = new Array(n).fill().map(() => []);
-  let top = 0;
-  let left = 0;
-  let right = n - 1;
-  let bottom = n - 1;
-  let direction = 'right';
-
-  let j = 0;
-  let k = 0;
+  let j = 0
+  let k = 0
   for (let i = 1; i <= dim; ++i) {
-    matrix[j][k] = i;
+    matrix[j][k] = i
 
     if (direction === 'right') {
       if (k === right) {
-        ++top;
+        ++top
         direction = 'bottom';
-        ++j;
+        ++j
       }
       else {
-        ++k;
+        ++k
       }
     }
     else if (direction === 'left') {
       if (k === left) {
-        --bottom;
+        --bottom
         direction = 'top';
-        --j;
+        --j
       }
       else {
-        --k;
+        --k
       }
     }
     else if (direction === 'bottom') {
       if (j === bottom) {
-        --right;
+        --right
         direction = 'left';
-        --k;
+        --k
       }
       else {
-        ++j;
+        ++j
       }
     }
     else {
       if (j === top) {
-        ++left;
+        ++left
         direction = 'right';
-        ++k;
+        ++k
       }
       else {
-        --j;
+        --j
       }
     }
   }
 
-  return matrix;
-};
+  return matrix
+}

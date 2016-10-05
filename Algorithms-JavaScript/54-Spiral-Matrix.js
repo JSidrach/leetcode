@@ -12,73 +12,73 @@ Given the following matrix:
 You should return [1,2,3,6,9,8,7,4,5].
 */
 
+'use strict'
+
 /**
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var spiralOrder = function(matrix) {
-  'use strict';
-
+const spiralOrder = function(matrix) {
   if (matrix.length === 0) {
-    return [];
+    return []
   }
 
-  const m = matrix.length;
-  const n = matrix[0].length;
-  const dim = m * n;
-  let top = 0;
-  let left = 0;
-  let right = n - 1;
-  let bottom = m - 1;
-  let direction = 'right';
-  let output = [];
+  const m = matrix.length
+  const n = matrix[0].length
+  const dim = m * n
+  let top = 0
+  let left = 0
+  let right = n - 1
+  let bottom = m - 1
+  let direction = 'right'
+  const output = []
 
-  let j = 0;
-  let k = 0;
+  let j = 0
+  let k = 0
   for (let i = 1; i <= dim; ++i) {
-    output.push(matrix[j][k]);
+    output.push(matrix[j][k])
 
     if (direction === 'right') {
       if (k === right) {
-        ++top;
+        ++top
         direction = 'bottom';
-        ++j;
+        ++j
       }
       else {
-        ++k;
+        ++k
       }
     }
     else if (direction === 'left') {
       if (k === left) {
-        --bottom;
+        --bottom
         direction = 'top';
-        --j;
+        --j
       }
       else {
-        --k;
+        --k
       }
     }
     else if (direction === 'bottom') {
       if (j === bottom) {
-        --right;
+        --right
         direction = 'left';
-        --k;
+        --k
       }
       else {
-        ++j;
+        ++j
       }
     }
     else {
       if (j === top) {
-        ++left;
+        ++left
         direction = 'right';
-        ++k;
+        ++k
       }
       else {
-        --j;
+        --j
       }
     }
   }
 
-  return output;
-};
+  return output
+}

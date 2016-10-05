@@ -11,45 +11,45 @@ If the first sequence of non-whitespace characters in str is not a valid integra
 If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
 */
 
+'use strict'
+
 /**
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function(str) {
-  'use strict';
+const myAtoi = function(str) {
+  const INT_MAX = 2147483647
+  const INT_MIN = -2147483648
 
-  const INT_MAX = 2147483647;
-  const INT_MIN = -2147483648;
-
-  const length = str.length;
-  let i = 0;
-  let num = 0;
+  const length = str.length
+  let i = 0
+  let num = 0
 
   while (str[i] === ' ') {
-    ++i;
+    ++i
   }
 
-  let sign = 1;
+  let sign = 1
   if (str[i] === '-') {
     sign = -1;
-    ++i;
+    ++i
   }
   else if (str[i] === '+') {
-    ++i;
+    ++i
   }
 
   while ((str[i] >= '0') && (str[i] <= '9') && (i < length)) {
     num = 10 * num + sign * (str[i].charAt(0) - '0'.charAt(0));
-    ++i;
+    ++i
 
     if (num >= INT_MAX) {
-      return INT_MAX;
+      return INT_MAX
     }
 
     if (num <= INT_MIN) {
-      return INT_MIN;
+      return INT_MIN
     }
   }
 
-  return num;
-};
+  return num
+}

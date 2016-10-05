@@ -11,58 +11,50 @@ Depending on your language, queue may not be supported natively. You may simulat
 You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).
 */
 
+'use strict'
+
 /**
  * @constructor
  */
-var Stack = function() {
-  'use strict';
-
-  this.queue = [];
-};
+const Stack = function() {
+  this.queue = []
+}
 
 /**
  * @param {number} x
  * @returns {void}
  */
 Stack.prototype.push = function(x) {
-  'use strict';
-
-  let tmpQueue = [];
+  const tmpQueue = []
 
   while (this.queue.length !== 0) {
-    tmpQueue.unshift(this.queue.shift());
+    tmpQueue.unshift(this.queue.shift())
   }
 
-  this.queue.unshift(x);
+  this.queue.unshift(x)
 
   while (tmpQueue.length !== 0) {
-    this.queue.unshift(tmpQueue.shift());
+    this.queue.unshift(tmpQueue.shift())
   }
-};
+}
 
 /**
  * @returns {void}
  */
 Stack.prototype.pop = function() {
-  'use strict';
-
-  this.queue.pop();
-};
+  this.queue.pop()
+}
 
 /**
  * @returns {number}
  */
 Stack.prototype.top = function() {
-  'use strict';
-
-  return this.queue[this.queue.length - 1];
-};
+  return this.queue[this.queue.length - 1]
+}
 
 /**
  * @returns {boolean}
  */
 Stack.prototype.empty = function() {
-  'use strict';
-
-  return (this.queue.length === 0);
-};
+  return (this.queue.length === 0)
+}

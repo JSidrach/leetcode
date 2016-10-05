@@ -12,38 +12,38 @@ Notes:
 You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.
 */
 
+'use strict'
+
 /**
  * @param {string} pattern
  * @param {string} str
  * @return {boolean}
  */
-var wordPattern = function(pattern, str) {
-  'use strict';
+const wordPattern = function(pattern, str) {
+  const dict = {}
+  const invDict = {}
 
-  let dict = {};
-  let invDict = {};
-
-  const matched = str.split(' ');
+  const matched = str.split(' ')
 
   if (pattern.length !== matched.length) {
-    return false;
+    return false
   }
 
   for (let i = 0; i < pattern.length; ++i) {
-    const key = pattern[i];
-    const word = matched.shift();
+    const key = pattern[i]
+    const word = matched.shift()
 
     if ((typeof dict[key] !== 'undefined') && (dict[key] !== word)) {
-      return false;
+      return false
     }
 
     if ((typeof invDict[word] !== 'undefined') && (invDict[word] !== key)) {
-      return false;
+      return false
     }
 
-    dict[key] = word;
-    invDict[word] = key;
+    dict[key] = word
+    invDict[word] = key
   }
 
-  return (matched.length === 0);
-};
+  return (matched.length === 0)
+}

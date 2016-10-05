@@ -13,34 +13,34 @@ return [1,3,2].
 Note: Recursive solution is trivial, could you do it iteratively?
 */
 
+'use strict'
+
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-  'use strict';
-
+const inorderTraversal = function(root) {
   if (root === null) {
-    return [];
+    return []
   }
 
-  let stack = [root];
-  let output = [];
+  const stack = [root]
+  const output = []
 
   while (stack.length !== 0) {
-    const node = stack[stack.length - 1];
+    const node = stack[stack.length - 1]
     if (node.left !== null) {
-      stack.push(node.left);
-      node.left = null;
+      stack.push(node.left)
+      node.left = null
     }
     else {
-      stack.pop();
-      output.push(node.val);
+      stack.pop()
+      output.push(node.val)
       if (node.right !== null) {
-        stack.push(node.right);
+        stack.push(node.right)
       }
     }
   }
 
-  return output;
-};
+  return output
+}

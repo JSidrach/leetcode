@@ -18,11 +18,9 @@ info:
 
 check:
 	@echo "Linting issues:"
-	@jscs ${ALGORITHMS_DIR} && echo "[None]" || true
-	@echo "Potential errors:"
-	@jshint ${ALGORITHMS_DIR} && echo "[None]" || true
+	@eslint ${ALGORITHMS_DIR} && echo "[None]" || true
 
 fix:
 	@echo "Fixing linting issues..."
-	@jscs ${ALGORITHMS_DIR} --fix || true
+	@eslint ${ALGORITHMS_DIR} --fix || true
 	@echo "... Linting issues fixed"

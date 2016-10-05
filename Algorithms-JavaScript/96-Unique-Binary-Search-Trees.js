@@ -11,24 +11,24 @@ Given n = 3, there are a total of 5 unique BST's.
    2     1         2                 3
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {number}
  */
-var numTrees = function(n) {
-  'use strict';
-
-  let solutions = [1, 1];
+const numTrees = function(n) {
+  const solutions = [1, 1]
 
   for (let i = 2; i <= n; ++i) {
-    let partial = 0;
+    let partial = 0
 
     for (let j = i - 1; j >= 0; --j) {
-      partial += solutions[j] * solutions[i - j - 1];
+      partial += solutions[j] * solutions[i - j - 1]
     }
 
-    solutions[i] = partial;
+    solutions[i] = partial
   }
 
-  return solutions.pop();
-};
+  return solutions.pop()
+}

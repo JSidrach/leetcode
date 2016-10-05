@@ -11,29 +11,29 @@ Have you consider that the string might be empty? This is a good question to ask
 For the purpose of this problem, we define empty string as valid palindrome.
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @return {boolean}
  */
-var isPalindrome = function(s) {
-  'use strict';
-
-  let plainS = [];
-  let length = 0;
+const isPalindrome = function(s) {
+  const plainS = []
+  let length = 0
 
   for (let i = 0; i < s.length; ++i) {
-    const c = s[i].toLowerCase();
+    const c = s[i].toLowerCase()
     if (((c >= 'a') && (c <= 'z')) || ((c >= '0') && (c <= '9'))) {
       plainS[length] = c;
-      ++length;
+      ++length
     }
   }
 
   for (let i = 0; i < plainS.length / 2; ++i) {
     if (plainS[i] !== plainS[plainS.length - i - 1]) {
-      return false;
+      return false
     }
   }
 
-  return true;
-};
+  return true
+}

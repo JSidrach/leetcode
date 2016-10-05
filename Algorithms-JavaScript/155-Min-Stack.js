@@ -7,56 +7,48 @@ top() -- Get the top element.
 getMin() -- Retrieve the minimum element in the stack.
 */
 
+'use strict'
+
 /**
  * @constructor
  */
-var MinStack = function() {
-  'use strict';
-
-  this.stack = [];
-  this.minStack = [];
-};
+const MinStack = function() {
+  this.stack = []
+  this.minStack = []
+}
 
 /**
  * @param {number} x
  * @returns {void}
  */
 MinStack.prototype.push = function(x) {
-  'use strict';
-
-  this.stack.push(x);
+  this.stack.push(x)
   if ((this.minStack.length === 0) || (this.minStack[this.minStack.length - 1] > x)) {
-    this.minStack.push(x);
+    this.minStack.push(x)
   }
   else {
-    this.minStack.push(this.minStack[this.minStack.length - 1]);
+    this.minStack.push(this.minStack[this.minStack.length - 1])
   }
-};
+}
 
 /**
  * @returns {void}
  */
 MinStack.prototype.pop = function() {
-  'use strict';
-
-  this.stack.pop();
-  this.minStack.pop();
-};
+  this.stack.pop()
+  this.minStack.pop()
+}
 
 /**
  * @returns {number}
  */
 MinStack.prototype.top = function() {
-  'use strict';
-
-  return this.stack[this.stack.length - 1];
-};
+  return this.stack[this.stack.length - 1]
+}
 
 /**
  * @returns {number}
  */
 MinStack.prototype.getMin = function() {
-  'use strict';
-
-  return this.minStack[this.minStack.length - 1];
-};
+  return this.minStack[this.minStack.length - 1]
+}

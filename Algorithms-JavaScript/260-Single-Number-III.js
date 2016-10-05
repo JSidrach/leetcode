@@ -10,32 +10,32 @@ The order of the result is not important. So in the above example, [5, 3] is als
 Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
-  'use strict';
-
-  let ab = 0;
+const singleNumber = function(nums) {
+  let ab = 0
 
   nums.forEach(function(num) {
-    ab ^= num;
-  });
+    ab ^= num
+  })
 
-  const lastDiff = (ab & (ab - 1)) ^ ab;
+  const lastDiff = (ab & (ab - 1)) ^ ab
 
-  let a = 0;
-  let b = 0;
+  let a = 0
+  let b = 0
 
   nums.forEach(function(num) {
     if (num & lastDiff) {
-      a ^= num;
+      a ^= num
     }
     else {
-      b ^= num;
+      b ^= num
     }
-  });
+  })
 
-  return [a, b];
-};
+  return [a, b]
+}

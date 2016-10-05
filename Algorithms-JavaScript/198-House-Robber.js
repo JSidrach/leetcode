@@ -4,21 +4,21 @@ You are a professional robber planning to rob houses along a street. Each house 
 Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
-  'use strict';
-
-  let best = 0;
-  let prevBest = 0;
+const rob = function(nums) {
+  let best = 0
+  let prevBest = 0
 
   nums.forEach(function(num) {
-    const tmp = best;
-    best = Math.max(prevBest + num, best);
-    prevBest = tmp;
-  });
+    const tmp = best
+    best = Math.max(prevBest + num, best)
+    prevBest = tmp
+  })
 
-  return best;
-};
+  return best
+}

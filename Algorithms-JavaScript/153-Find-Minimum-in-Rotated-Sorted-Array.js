@@ -8,26 +8,26 @@ Find the minimum element.
 You may assume no duplicate exists in the array.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var findMin = function(nums) {
-  'use strict';
-
-  let lower = 0;
-  let upper = nums.length - 1;
+const findMin = function(nums) {
+  let lower = 0
+  let upper = nums.length - 1
 
   while (lower < upper) {
-    const middle = lower + Math.floor((upper - lower) / 2);
+    const middle = lower + Math.floor((upper - lower) / 2)
 
     if (nums[middle] > nums[upper]) {
-      lower = middle + 1;
+      lower = middle + 1
     }
     else {
-      upper = middle;
+      upper = middle
     }
   }
 
-  return nums[lower];
-};
+  return nums[lower]
+}

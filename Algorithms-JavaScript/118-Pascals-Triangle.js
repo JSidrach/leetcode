@@ -13,28 +13,28 @@ Return
 ]
 */
 
+'use strict'
+
 /**
  * @param {number} numRows
  * @return {number[][]}
  */
-var generate = function(numRows) {
-  'use strict';
-
-  let result = [];
-  let i = 1;
-  let prevRow = [];
+const generate = function(numRows) {
+  const result = []
+  let i = 1
+  let prevRow = []
 
   while (i <= numRows) {
-    let row = [];
+    const row = []
 
     for (let j = 0; j < i; j++) {
-      row.push(((j === 0) || (j === (i - 1))) ? 1 : (prevRow[j - 1] + prevRow[j]));
+      row.push(((j === 0) || (j === (i - 1))) ? 1 : (prevRow[j - 1] + prevRow[j]))
     }
 
     result.push(row);
-    ++i;
-    prevRow = row;
+    ++i
+    prevRow = row
   }
 
-  return result;
-};
+  return result
+}

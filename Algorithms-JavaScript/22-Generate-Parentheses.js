@@ -6,31 +6,31 @@ For example, given n = 3, a solution set is:
 "((()))", "(()())", "(())()", "()(())", "()()()"
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
-  'use strict';
-
-  let lists = [['']];
+const generateParenthesis = function(n) {
+  const lists = [['']]
 
   for (let i = 1; i <= n; ++i) {
-    let list = [];
+    const list = []
 
     for (let j = 0; j < i; ++j) {
-      const firsts = lists[j];
-      const rest = lists[i - j - 1];
+      const firsts = lists[j]
+      const rest = lists[i - j - 1]
 
       for (let k = 0; k < firsts.length; ++k) {
         for (let z = 0; z < rest.length; ++z) {
-          list.push('(' + firsts[k] + ')' + rest[z]);
+          list.push('(' + firsts[k] + ')' + rest[z])
         }
       }
     }
 
-    lists.push(list);
+    lists.push(list)
   }
 
-  return lists[n];
-};
+  return lists[n]
+}

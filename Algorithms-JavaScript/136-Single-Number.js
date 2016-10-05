@@ -5,18 +5,18 @@ Note:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(nums) {
-  'use strict';
-
-  let result = 0;
+const singleNumber = function(nums) {
+  let result = 0
 
   nums.forEach(function(num) {
-    result ^= num;
-  });
+    result ^= num
+  })
 
-  return result;
-};
+  return result
+}

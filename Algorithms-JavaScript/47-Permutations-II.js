@@ -6,40 +6,36 @@ For example,
 [1,1,2], [1,2,1], and [2,1,1].
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permuteUnique = function(nums) {
-  'use strict';
+const permuteUnique = (nums) => permutation(nums, 0, nums.length - 1, {})
 
-  return permutation(nums, 0, nums.length - 1, {});
-};
-
-var permutation = function(nums, i, n, hash) {
-  'use strict';
-
+const permutation = function(nums, i, n, hash) {
   if (i === n) {
-    return [nums.slice()];
+    return [nums.slice()]
   }
 
-  let output = [];
+  const output = []
 
   for (let j = i; j <= n; ++j) {
-    const swap = nums[i];
-    nums[i] = nums[j];
-    nums[j] = swap;
+    const swap = nums[i]
+    nums[i] = nums[j]
+    nums[j] = swap
 
-    const key = nums.join();
+    const key = nums.join()
     if (typeof hash[key] === 'undefined') {
-      const p = permutation(nums, i + 1, n, hash);
-      hash[key] = true;
-      output.push.apply(output, p);
+      const p = permutation(nums, i + 1, n, hash)
+      hash[key] = true
+      output.push.apply(output, p)
     }
 
-    nums[j] = nums[i];
-    nums[i] = swap;
+    nums[j] = nums[i]
+    nums[i] = swap
   }
 
-  return output;
-};
+  return output
+}

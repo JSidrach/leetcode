@@ -4,53 +4,53 @@ Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
 The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
 */
 
+'use strict'
+
 /**
  * @param {character[][]} board
  * @return {boolean}
  */
-var isValidSudoku = function(board) {
-  'use strict';
-
+const isValidSudoku = function(board) {
   for (let i = 0; i < 9; ++i) {
-    let row = [false, false, false, false, false, false, false, false, false];
-    let col = [false, false, false, false, false, false, false, false, false];
+    const row = [false, false, false, false, false, false, false, false, false]
+    const col = [false, false, false, false, false, false, false, false, false]
 
     for (let j = 0; j < 9; ++j) {
-      let itemRow = board[i][j];
-      let itemCol = board[j][i];
+      const itemRow = board[i][j]
+      const itemCol = board[j][i]
 
       if (itemRow !== '.') {
         if (row[itemRow]) {
-          return false;
+          return false
         }
 
-        row[itemRow] = true;
+        row[itemRow] = true
       }
 
       if (itemCol !== '.') {
         if (col[itemCol]) {
-          return false;
+          return false
         }
 
-        col[itemCol] = true;
+        col[itemCol] = true
       }
     }
   }
 
   for (let i = 0; i < 3; ++i) {
     for (let j = 0; j < 3; ++j) {
-      let block = [false, false, false, false, false, false, false, false, false];
+      const block = [false, false, false, false, false, false, false, false, false]
 
       for (let k = 0; k < 3; ++k) {
         for (let z = 0; z < 3; ++z) {
-          let itemBlock = board[3 * i + k][3 * j + z];
+          const itemBlock = board[3 * i + k][3 * j + z]
 
           if (itemBlock !== '.') {
             if (block[itemBlock]) {
-              return false;
+              return false
             }
 
-            block[itemBlock] = true;
+            block[itemBlock] = true
           }
 
         }
@@ -59,5 +59,5 @@ var isValidSudoku = function(board) {
     }
   }
 
-  return true;
-};
+  return true
+}

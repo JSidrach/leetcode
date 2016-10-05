@@ -9,24 +9,24 @@ Input: numbers={2, 7, 11, 15}, target=9
 Output: index1=1, index2=2
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-  'use strict';
-
-  const nLength = nums.length;
-  let visited = [];
+const twoSum = function(nums, target) {
+  const nLength = nums.length
+  const visited = []
 
   for (let i = 0; i < nLength; ++i) {
-    const num = nums[i];
+    const num = nums[i]
     if (typeof visited[target - num] !== 'undefined') {
-      return [visited[target - num], i + 1];
+      return [visited[target - num], i + 1]
     }
     else {
-      visited[nums[i]] = i + 1;
+      visited[nums[i]] = i + 1
     }
   }
-};
+}

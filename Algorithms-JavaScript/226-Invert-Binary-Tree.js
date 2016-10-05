@@ -14,6 +14,8 @@ to
 9   6 3   1
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -25,19 +27,17 @@ to
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-  'use strict';
-
+const invertTree = function(root) {
   if (root === null) {
-    return null;
+    return null
   }
 
-  const tmpNode = root.left;
-  root.left = root.right;
-  root.right = tmpNode;
+  const tmpNode = root.left
+  root.left = root.right
+  root.right = tmpNode
 
-  invertTree(root.left);
-  invertTree(root.right);
+  invertTree(root.left)
+  invertTree(root.right)
 
-  return root;
-};
+  return root
+}

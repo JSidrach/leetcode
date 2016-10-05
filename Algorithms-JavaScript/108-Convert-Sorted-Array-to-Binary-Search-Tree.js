@@ -1,11 +1,12 @@
 /*
 Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 */
-function TreeNode(val) {
-  'use strict';
 
-  this.val = val;
-  this.left = this.right = null;
+'use strict'
+
+function TreeNode(val) {
+  this.val = val
+  this.left = this.right = null
 }
 
 /**
@@ -19,20 +20,18 @@ function TreeNode(val) {
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {
-  'use strict';
-
+const sortedArrayToBST = function(nums) {
   if ((nums === null) || (nums.length === 0)) {
-    return null;
+    return null
   }
 
-  const mid = nums.length >> 1;
-  const node = new TreeNode(nums[mid]);
+  const mid = nums.length >> 1
+  const node = new TreeNode(nums[mid])
 
   if (mid > 0) {
-    node.left = sortedArrayToBST(nums.slice(0, mid));
-    node.right = sortedArrayToBST(nums.slice(mid + 1, nums.length));
+    node.left = sortedArrayToBST(nums.slice(0, mid))
+    node.right = sortedArrayToBST(nums.slice(mid + 1, nums.length))
   }
 
-  return node;
-};
+  return node
+}

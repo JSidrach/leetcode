@@ -15,37 +15,37 @@ Consider the following matrix:
 Given target = 3, return true.
 */
 
+'use strict'
+
 /**
  * @param {number[][]} matrix
  * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function(matrix, target) {
-  'use strict';
-
-  const rows = matrix.length;
+const searchMatrix = function(matrix, target) {
+  const rows = matrix.length
   if (rows === 0) {
-    return false;
+    return false
   }
 
-  const columns = matrix[0].length;
-  let lower = 0;
-  let upper = rows * columns;
+  const columns = matrix[0].length
+  let lower = 0
+  let upper = rows * columns
 
   while (lower < upper) {
-    const middle = lower + Math.floor((upper - lower) / 2);
-    const num = matrix[Math.floor(middle / columns)][middle % columns];
+    const middle = lower + Math.floor((upper - lower) / 2)
+    const num = matrix[Math.floor(middle / columns)][middle % columns]
 
     if (target === num) {
-      return true;
+      return true
     }
     else if (target > num) {
-      lower = middle + 1;
+      lower = middle + 1
     }
     else {
-      upper = middle;
+      upper = middle
     }
   }
 
-  return false;
-};
+  return false
+}

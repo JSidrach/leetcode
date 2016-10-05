@@ -6,6 +6,8 @@ Calling next() will return the next smallest number in the BST.
 Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
 */
 
+'use strict'
+
 /**
  * Definition for binary tree
  * function TreeNode(val) {
@@ -18,42 +20,36 @@ Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,
  * @constructor
  * @param {TreeNode} root - root of the binary search tree
  */
-var BSTIterator = function(root) {
-  'use strict';
+const BSTIterator = function(root) {
+  const orig = { val: null, left: null, right: root }
+  this.stack = [orig]
 
-  const orig = { val: null, left: null, right: root };
-  this.stack = [orig];
-
-  this.next();
-};
+  this.next()
+}
 
 /**
  * @this BSTIterator
  * @returns {boolean} - whether we have a next smallest number
  */
 BSTIterator.prototype.hasNext = function() {
-  'use strict';
-
-  return (this.stack.length !== 0);
-};
+  return (this.stack.length !== 0)
+}
 
 /**
  * @this BSTIterator
  * @returns {number} - the next smallest number
  */
 BSTIterator.prototype.next = function() {
-  'use strict';
+  const node = this.stack.pop()
 
-  let node = this.stack.pop();
-
-  let p = node.right;
+  let p = node.right
   while (p !== null) {
-    this.stack.push(p);
-    p = p.left;
+    this.stack.push(p)
+    p = p.left
   }
 
-  return node.val;
-};
+  return node.val
+}
 
 /**
  * Your BSTIterator will be called like this:

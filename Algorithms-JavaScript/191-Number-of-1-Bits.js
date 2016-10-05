@@ -4,22 +4,22 @@ Write a function that takes an unsigned integer and returns the number of ’1' 
 For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, so the function should return 3.
 */
 
+'use strict'
+
 /**
  * @param {number} n - a positive integer
  * @return {number}
  */
-var hammingWeight = function(n) {
-  'use strict';
-
-  let numOnes = 0;
+const hammingWeight = function(n) {
+  let numOnes = 0
 
   while (n > 0) {
     if (n % 2) {
-      numOnes++;
+      numOnes++
     }
 
-    n = ~~(n / 2);
+    n = ~~(n / 2)
   }
 
-  return numOnes;
-};
+  return numOnes
+}

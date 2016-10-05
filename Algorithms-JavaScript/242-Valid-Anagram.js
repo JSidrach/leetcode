@@ -12,26 +12,26 @@ Follow up:
 What if the inputs contain unicode characters? How would you adapt your solution to such case?
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-  'use strict';
-
+const isAnagram = function(s, t) {
   if (s.length !== t.length) {
-    return false;
+    return false
   }
 
   for (let i = 0; i < t.length; ++i) {
-    const idx = s.indexOf(t[i]);
+    const idx = s.indexOf(t[i])
     if (idx === -1) {
-      return false;
+      return false
     }
 
-    s = s.substr(0, idx) + s.substr(idx + 1, s.length);
+    s = s.substr(0, idx) + s.substr(idx + 1, s.length)
   }
 
-  return true;
-};
+  return true
+}

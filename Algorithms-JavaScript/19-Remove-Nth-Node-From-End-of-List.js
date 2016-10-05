@@ -11,6 +11,8 @@ Given n will always be valid.
 Try to do this in one pass.
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -23,24 +25,22 @@ Try to do this in one pass.
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
-  'use strict';
-
-  const orig = { val: -1, next: head };
-  let node = orig;
-  let p = orig;
+const removeNthFromEnd = function(head, n) {
+  const orig = { val: -1, next: head }
+  let node = orig
+  let p = orig
 
   while (n > 0) {
     node = node.next;
-    --n;
+    --n
   }
 
   while (node.next !== null) {
-    node = node.next;
-    p = p.next;
+    node = node.next
+    p = p.next
   }
 
-  p.next = p.next.next;
+  p.next = p.next.next
 
-  return (p === orig) ? head.next : head;
-};
+  return (p === orig) ? head.next : head
+}

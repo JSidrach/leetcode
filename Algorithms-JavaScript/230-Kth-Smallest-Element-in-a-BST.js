@@ -14,6 +14,8 @@ What if you could modify the BST node's structure?
 The optimal runtime complexity is O(height of BST).
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -26,30 +28,28 @@ The optimal runtime complexity is O(height of BST).
  * @param {number} k
  * @return {number}
  */
-var kthSmallest = function(root, k) {
-  'use strict';
-
-  let stack = [root];
+const kthSmallest = function(root, k) {
+  const stack = [root]
 
   while (stack.length !== 0) {
-    const node = stack.pop();
+    const node = stack.pop()
 
     if (node.left === null) {
       if (k === 1) {
-        return node.val;
+        return node.val
       }
 
       if (node.right !== null) {
-        stack.push(node.right);
+        stack.push(node.right)
       }
 
-      --k;
+      --k
     }
     else {
-      const tmp = node.left;
-      node.left = null;
-      stack.push(node);
-      stack.push(tmp);
+      const tmp = node.left
+      node.left = null
+      stack.push(node)
+      stack.push(tmp)
     }
   }
-};
+}

@@ -11,22 +11,22 @@ Example: 19 is a happy number
 12 + 02 + 02 = 1
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
-  'use strict';
-
-  let sum = n;
+const isHappy = function(n) {
+  let sum = n
   while (sum > 9) {
-    let tmp = sum;
-    sum = 0;
+    let tmp = sum
+    sum = 0
     while (tmp > 0) {
-      sum += (tmp % 10) * (tmp % 10);
-      tmp = ~~(tmp / 10);
+      sum += (tmp % 10) * (tmp % 10)
+      tmp = ~~(tmp / 10)
     }
   }
 
-  return (sum === 1) || (sum === 7);
-};
+  return (sum === 1) || (sum === 7)
+}

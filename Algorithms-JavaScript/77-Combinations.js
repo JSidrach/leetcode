@@ -14,40 +14,36 @@ If n = 4 and k = 2, a solution is:
 ]
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @param {number} k
  * @return {number[][]}
  */
-var combine = function(n, k) {
-  'use strict';
+const combine = (n, k) => combineRecursive(n, k, 1)
 
-  return combineRecursive(n, k, 1);
-};
-
-var combineRecursive = function(n, k, min) {
-  'use strict';
-
+const combineRecursive = function(n, k, min) {
   if ((n - min + 1) < k) {
-    return [];
+    return []
   }
 
-  let solution = [];
+  const solution = []
 
   if (k === 1) {
     for (let i = min; i <= n; ++i) {
-      solution.push([i]);
+      solution.push([i])
     }
   }
   else {
     for (let i = min; i <= n; ++i) {
-      let answer = combineRecursive(n, k - 1, i + 1);
+      const answer = combineRecursive(n, k - 1, i + 1)
 
       for (let j = 0; j < answer.length; ++j) {
-        solution.push([i].concat(answer[j]));
+        solution.push([i].concat(answer[j]))
       }
     }
   }
 
-  return solution;
-};
+  return solution
+}

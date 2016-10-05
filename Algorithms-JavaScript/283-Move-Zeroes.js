@@ -8,35 +8,36 @@ You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function(nums) {
-  'use strict';
+const moveZeroes = function(nums) {
 
-  let totalDelete = 0;
-  let deleteBatch = 0;
-  let start = 0;
+  let totalDelete = 0
+  let deleteBatch = 0
+  let start = 0
 
   for (let i = 0; i < nums.length; ++i) {
     if (nums[i] === 0) {
       if (deleteBatch === 0) {
-        start = i;
+        start = i
       }
 
-      deleteBatch++;
+      deleteBatch++
     }
     else if (deleteBatch > 0) {
-      totalDelete += deleteBatch;
-      nums.splice(start, deleteBatch);
-      i -= deleteBatch;
-      deleteBatch = 0;
+      totalDelete += deleteBatch
+      nums.splice(start, deleteBatch)
+      i -= deleteBatch
+      deleteBatch = 0
     }
   }
 
   while (totalDelete > 0) {
-    nums.push(0);
-    totalDelete--;
+    nums.push(0)
+    totalDelete--
   }
-};
+}

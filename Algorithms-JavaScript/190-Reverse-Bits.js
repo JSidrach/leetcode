@@ -7,20 +7,20 @@ Follow up:
 If this function is called many times, how would you optimize it?
 */
 
+'use strict'
+
 /**
  * @param {number} n - a positive integer
  * @return {number} - a positive integer
  */
-var reverseBits = function(n) {
-  'use strict';
+const reverseBits = function(n) {
+  let nBin = n.toString(2)
+  nBin = '0'.repeat(32 - nBin.length) + nBin
 
-  let nBin = n.toString(2);
-  nBin = '0'.repeat(32 - nBin.length) + nBin;
-
-  let reversed = '';
+  let reversed = ''
   for (let i = 31; i >= 0; --i) {
-    reversed += nBin[i];
+    reversed += nBin[i]
   }
 
-  return parseInt(reversed, 2);
-};
+  return parseInt(reversed, 2)
+}

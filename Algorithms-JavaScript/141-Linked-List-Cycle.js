@@ -5,6 +5,8 @@ Follow up:
 Can you solve it without using extra space?
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -17,23 +19,21 @@ Can you solve it without using extra space?
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
-  'use strict';
-
+const hasCycle = function(head) {
   if (head === null) {
-    return false;
+    return false
   }
 
-  const origin = { val: -1, next: head };
-  let prev = origin;
-  let p = head;
+  const origin = { val: -1, next: head }
+  let prev = origin
+  let p = head
 
   while ((p !== null) && (p.next !== origin)) {
-    const tmp = p.next;
-    p.next = prev;
-    prev = p;
-    p = tmp;
+    const tmp = p.next
+    p.next = prev
+    prev = p
+    p = tmp
   }
 
-  return (p !== null);
-};
+  return (p !== null)
+}

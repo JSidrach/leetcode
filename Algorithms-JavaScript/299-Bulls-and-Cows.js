@@ -16,37 +16,37 @@ In this case, the 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow, 
 You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
 */
 
+'use strict'
+
 /**
  * @param {string} secret
  * @param {string} guess
  * @return {string}
  */
-var getHint = function(secret, guess) {
-  'use strict';
-
-  let bulls = 0;
-  let cows = 0;
-  let counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const getHint = function(secret, guess) {
+  let bulls = 0
+  let cows = 0
+  const counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   for (let i = 0; i < secret.length; ++i) {
-    const s = secret[i];
-    const g = guess[i];
+    const s = secret[i]
+    const g = guess[i]
 
     if (s === g) {
-      ++bulls;
+      ++bulls
     }
     else {
-      ++counter[s];
+      ++counter[s]
       if (counter[s] <= 0) {
-        ++cows;
+        ++cows
       }
 
-      --counter[g];
+      --counter[g]
       if (counter[g] >= 0) {
-        ++cows;
+        ++cows
       }
     }
   }
 
-  return bulls + 'A' + cows + 'B';
-};
+  return bulls + 'A' + cows + 'B'
+}

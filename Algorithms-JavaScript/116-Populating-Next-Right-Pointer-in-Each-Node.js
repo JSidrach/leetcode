@@ -29,6 +29,8 @@ After calling your function, the tree should look like:
     4->5->6->7 -> NULL
 */
 
+'use strict'
+
 /**
  * Definition for binary tree with next pointer.
  * function TreeLinkNode(val) {
@@ -41,35 +43,33 @@ After calling your function, the tree should look like:
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-var connect = function(root) {
-  'use strict';
-
+const connect = function(root) {
   if (root === null) {
-    return;
+    return
   }
 
-  const orig = { val: -1, next: null };
-  let list = [root];
-  let length = 1;
+  const orig = { val: -1, next: null }
+  const list = [root]
+  let length = 1
 
   while (length !== 0) {
-    let p = orig;
+    let p = orig
 
     for (let i = 0; i < length; ++i) {
-      const node = list.shift();
-      p.next = node;
-      p = node;
+      const node = list.shift()
+      p.next = node
+      p = node
 
       if (p.left !== null) {
-        list.push(p.left);
+        list.push(p.left)
       }
 
       if (p.right !== null) {
-        list.push(p.right);
+        list.push(p.right)
       }
     }
 
-    p.next = null;
-    length = list.length;
+    p.next = null
+    length = list.length
   }
-};
+}

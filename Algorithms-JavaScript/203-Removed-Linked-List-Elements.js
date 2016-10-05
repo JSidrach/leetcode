@@ -6,6 +6,8 @@ Given: 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6, val = 6
 Return: 1 --> 2 --> 3 --> 4 --> 5
 */
 
+'use strict'
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -18,23 +20,21 @@ Return: 1 --> 2 --> 3 --> 4 --> 5
  * @param {number} val
  * @return {ListNode}
  */
-var removeElements = function(head, val) {
-  'use strict';
-
-  const orig = { val: -1, next: head };
-  let prev = orig;
-  let p = orig.next;
+const removeElements = function(head, val) {
+  const orig = { val: -1, next: head }
+  let prev = orig
+  let p = orig.next
 
   while (p !== null) {
     if (p.val === val) {
-      prev.next = p.next;
+      prev.next = p.next
     }
     else {
-      prev = p;
+      prev = p
     }
 
-    p = p.next;
+    p = p.next
   }
 
-  return orig.next;
-};
+  return orig.next
+}

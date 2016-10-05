@@ -16,32 +16,32 @@ Note:
 You may assume both s and t have the same length.
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @param {string} t
  * @return {boolean}
  */
-var isIsomorphic = function(s, t) {
-  'use strict';
-
-  let dict = {};
-  let invDict = {};
+const isIsomorphic = function(s, t) {
+  const dict = {}
+  const invDict = {}
 
   for (let i = 0; i < s.length; ++i) {
-    const key = s[i];
-    const value = t[i];
+    const key = s[i]
+    const value = t[i]
 
     if ((typeof dict[key] !== 'undefined') && (dict[key] !== value)) {
-      return false;
+      return false
     }
 
     if ((typeof invDict[value] !== 'undefined') && (invDict[value] !== key)) {
-      return false;
+      return false
     }
 
-    dict[key] = value;
-    invDict[value] = key;
+    dict[key] = value
+    invDict[value] = key
   }
 
-  return true;
-};
+  return true
+}

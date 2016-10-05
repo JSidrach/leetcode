@@ -4,22 +4,22 @@ Given an array of size n, find the majority element. The majority element is the
 You may assume that the array is non-empty and the majority element always exist in the array.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function(nums) {
-  'use strict';
+const majorityElement = function(nums) {
+  nums.sort()
 
-  nums.sort();
-
-  let i = 0;
+  const i = 0
   while (nums.length > 0) {
-    const last = nums.lastIndexOf(nums[i]) + 1;
+    const last = nums.lastIndexOf(nums[i]) + 1
     if (last > Math.floor(nums.length / 2)) {
-      return nums[i];
+      return nums[i]
     }
 
-    nums = nums.slice(last, nums.length);
+    nums = nums.slice(last, nums.length)
   }
-};
+}

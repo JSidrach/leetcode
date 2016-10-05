@@ -16,23 +16,23 @@ Did you notice that the reversed integer might overflow? Assume the input is a 3
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 */
 
+'use strict'
+
 /**
  * @param {number} x
  * @return {number}
  */
-var reverse = function(x) {
-  'use strict';
-
-  const overflow = 2147483647;
-  const xStr = (x > 0) ? x.toString() : (-x).toString();
-  let reversed = '';
+const reverse = function(x) {
+  const overflow = 2147483647
+  const xStr = (x > 0) ? x.toString() : (-x).toString()
+  let reversed = ''
 
   for (let i = xStr.length - 1; i >= 0; --i) {
-    reversed += xStr[i];
+    reversed += xStr[i]
   }
 
-  let reversedNum = parseInt(reversed, 10);
-  reversedNum = (reversedNum > overflow) ? 0 : reversedNum;
+  let reversedNum = parseInt(reversed, 10)
+  reversedNum = (reversedNum > overflow) ? 0 : reversedNum
 
-  return (x > 0) ? reversedNum : -reversedNum;
-};
+  return (x > 0) ? reversedNum : -reversedNum
+}

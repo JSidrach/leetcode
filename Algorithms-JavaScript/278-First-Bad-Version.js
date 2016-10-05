@@ -6,6 +6,8 @@ Suppose you have n versions [1, 2, ..., n] and you want to find out the first ba
 You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
 */
 
+'use strict'
+
 /**
  * Definition for isBadVersion()
  *
@@ -20,30 +22,29 @@ You are given an API bool isBadVersion(version) which will return whether versio
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
-  'use strict';
+const solution = function(isBadVersion) {
 
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
    */
   return function(n) {
-    let lowerLimit = 1;
-    let upperLimit = n;
-    let candidate = n;
+    let lowerLimit = 1
+    let upperLimit = n
+    let candidate = n
 
     while (lowerLimit < upperLimit) {
-      const middle = lowerLimit + ((upperLimit - lowerLimit) >> 1);
+      const middle = lowerLimit + ((upperLimit - lowerLimit) >> 1)
 
       if (isBadVersion(middle)) {
-        candidate = (candidate < middle) ? candidate : middle;
-        upperLimit = middle;
+        candidate = (candidate < middle) ? candidate : middle
+        upperLimit = middle
       }
       else {
-        lowerLimit = middle + 1;
+        lowerLimit = middle + 1
       }
     }
 
-    return candidate;
-  };
-};
+    return candidate
+  }
+}

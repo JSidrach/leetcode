@@ -12,27 +12,28 @@ maxProfit = 3
 transactions = [buy, sell, cooldown, buy, sell]
 */
 
+'use strict'
+
 /**
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
-  'use strict';
+const maxProfit = function(prices) {
 
   if (prices.length <= 1) {
-    return 0;
+    return 0
   }
 
-  let rest = 0;
-  let bought = -prices[0];
-  let sold = -Infinity;
+  let rest = 0
+  let bought = -prices[0]
+  let sold = -Infinity
 
   prices.forEach(function(price) {
-    const prevSold = sold;
-    sold = bought + price;
-    bought = Math.max(bought, rest - price);
-    rest = Math.max(rest, prevSold);
-  });
+    const prevSold = sold
+    sold = bought + price
+    bought = Math.max(bought, rest - price)
+    rest = Math.max(rest, prevSold)
+  })
 
-  return Math.max(rest, sold);
-};
+  return Math.max(rest, sold)
+}

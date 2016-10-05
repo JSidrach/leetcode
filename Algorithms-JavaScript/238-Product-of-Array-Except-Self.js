@@ -9,31 +9,31 @@ Follow up:
 Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
-var productExceptSelf = function(nums) {
-  'use strict';
-
-  const length = nums.length;
+const productExceptSelf = function(nums) {
+  const length = nums.length
 
   if (length <= 1) {
-    return nums;
+    return nums
   }
 
-  let output = [1];
+  const output = [1]
 
   for (let i = 1; i < length; ++i) {
-    output[i] = nums[i - 1] * output[i - 1];
+    output[i] = nums[i - 1] * output[i - 1]
   }
 
-  let m = 1;
+  let m = 1
 
   for (let i = length - 2; i >= 0; --i) {
-    m *= nums[i + 1];
-    output[i] *= m;
+    m *= nums[i + 1]
+    output[i] *= m
   }
 
-  return output;
-};
+  return output
+}

@@ -12,21 +12,21 @@ For example:
     28 -> AB
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {string}
  */
-var convertToTitle = function(n) {
-  'use strict';
-
-  const base = 'A'.charCodeAt(0) - 1;
-  const exp = 'Z'.charCodeAt(0) - 'A'.charCodeAt(0) + 1;
-  let column = '';
+const convertToTitle = function(n) {
+  const base = 'A'.charCodeAt(0) - 1
+  const exp = 'Z'.charCodeAt(0) - 'A'.charCodeAt(0) + 1
+  let column = ''
 
   while (n >= 1) {
-    column = String.fromCharCode(base + ((n - 1) % exp) + 1) + column;
-    n = (n - 1) / exp;
+    column = String.fromCharCode(base + ((n - 1) % exp) + 1) + column
+    n = (n - 1) / exp
   }
 
-  return column;
-};
+  return column
+}

@@ -13,6 +13,8 @@ Given the below binary tree and sum = 22,
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -25,16 +27,14 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
  * @param {number} sum
  * @return {boolean}
  */
-var hasPathSum = function(root, sum) {
-  'use strict';
-
+const hasPathSum = function(root, sum) {
   if (root === null) {
-    return false;
+    return false
   }
 
   if ((root.left === null) && (root.right === null)) {
-    return (sum === root.val);
+    return (sum === root.val)
   }
 
-  return (hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val));
-};
+  return (hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val))
+}

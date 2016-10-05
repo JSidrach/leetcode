@@ -5,21 +5,21 @@ Note:
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(nums) {
-  'use strict';
-
-  let c1 = 0;
-  let c2 = 0;
+const singleNumber = function(nums) {
+  let c1 = 0
+  let c2 = 0
 
   nums.forEach(function(c3) {
-    const tmp = (~c1 & c2 & c3) | (c1 & ~c2 & ~c3);
-    c2 = (~c1 & ~c2 & c3) | (~c1 & c2 & ~c3);
-    c1 = tmp;
-  });
+    const tmp = (~c1 & c2 & c3) | (c1 & ~c2 & ~c3)
+    c2 = (~c1 & ~c2 & c3) | (~c1 & c2 & ~c3)
+    c1 = tmp
+  })
 
-  return c1 | c2;
-};
+  return c1 | c2
+}

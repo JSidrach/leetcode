@@ -10,27 +10,27 @@ Here are few examples.
 [1,3,5,6], 0 → 0
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
-  'use strict';
-
-  let lower = 0;
-  let upper = nums.length;
+const searchInsert = function(nums, target) {
+  let lower = 0
+  let upper = nums.length
 
   while (lower < upper) {
-    const middle = lower + Math.floor((upper - lower) / 2);
+    const middle = lower + Math.floor((upper - lower) / 2)
 
     if (target > nums[middle]) {
-      lower = middle + 1;
+      lower = middle + 1
     }
     else {
-      upper = middle;
+      upper = middle
     }
   }
 
-  return lower;
-};
+  return lower
+}

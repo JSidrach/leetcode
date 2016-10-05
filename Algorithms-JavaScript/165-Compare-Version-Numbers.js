@@ -11,31 +11,31 @@ Here is an example of version numbers ordering:
 0.1 < 1.1 < 1.2 < 13.37
 */
 
+'use strict'
+
 /**
  * @param {string} version1
  * @param {string} version2
  * @return {number}
  */
-var compareVersion = function(version1, version2) {
-  'use strict';
-
-  const v1 = version1.split('.');
-  const v2 = version2.split('.');
-  const v1Length = v1.length;
-  const v2Length = v2.length;
-  const length = Math.max(v1Length, v2Length);
+const compareVersion = function(version1, version2) {
+  const v1 = version1.split('.')
+  const v2 = version2.split('.')
+  const v1Length = v1.length
+  const v2Length = v2.length
+  const length = Math.max(v1Length, v2Length)
 
   for (let i = 0; i < length; ++i) {
-    const subV1 = (i >= v1Length) ? 0 : parseInt(v1[i], 10);
-    const subV2 = (i >= v2Length) ? 0 : parseInt(v2[i], 10);
+    const subV1 = (i >= v1Length) ? 0 : parseInt(v1[i], 10)
+    const subV2 = (i >= v2Length) ? 0 : parseInt(v2[i], 10)
 
     if (subV1 > subV2) {
-      return 1;
+      return 1
     }
     else if (subV2 > subV1) {
-      return -1;
+      return -1
     }
   }
 
-  return 0;
-};
+  return 0
+}

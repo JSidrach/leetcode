@@ -12,19 +12,19 @@ You may assume that the array does not change.
 There are many calls to sumRange function.
 */
 
+'use strict'
+
 /**
  * @constructor
  * @param {number[]} nums
  */
-var NumArray = function(nums) {
-  'use strict';
-
-  this.sums = [0];
+const NumArray = function(nums) {
+  this.sums = [0]
 
   for (let i = 0; i < nums.length; ++i) {
-    this.sums[i + 1] = this.sums[i] + nums[i];
+    this.sums[i + 1] = this.sums[i] + nums[i]
   }
-};
+}
 
 /**
  * @param {number} i
@@ -32,10 +32,8 @@ var NumArray = function(nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function(i, j) {
-  'use strict';
-
-  return this.sums[j + 1] - this.sums[i];
-};
+  return this.sums[j + 1] - this.sums[i]
+}
 
 /**
  * Your NumArray object will be instantiated and called as such:

@@ -21,38 +21,34 @@ Output:
 [[1,2,6], [1,3,5], [2,3,4]]
 */
 
+'use strict'
+
 /**
  * @param {number} k
  * @param {number} n
  * @return {number[][]}
  */
-var combinationSum3 = function(k, n) {
-  'use strict';
+const combinationSum3 = (k, n) => combinationSum3Recursive(n, k, 0)
 
-  return combinationSum3Recursive(n, k, 0);
-};
-
-var combinationSum3Recursive = function(target, length, lastNumber) {
-  'use strict';
-
+const combinationSum3Recursive = function(target, length, lastNumber) {
   if (length === 1) {
     if ((target <= lastNumber) || (target > 9)) {
-      return [];
+      return []
     }
     else {
-      return [[target]];
+      return [[target]]
     }
   }
 
-  let solutions = [];
+  const solutions = []
 
   for (let i = lastNumber + 1; (i <= 9) && (i < target); ++i) {
-    const answer = combinationSum3Recursive(target - i, length - 1, i);
+    const answer = combinationSum3Recursive(target - i, length - 1, i)
 
     for (let j = 0; j < answer.length; ++j) {
-      solutions.push([i].concat(answer[j]));
+      solutions.push([i].concat(answer[j]))
     }
   }
 
-  return solutions;
-};
+  return solutions
+}

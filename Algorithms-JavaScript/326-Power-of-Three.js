@@ -5,12 +5,10 @@ Follow up:
 Could you do it without using any loop / recursion?
 */
 
+'use strict'
+
 /**
  * @param {number} n
  * @return {boolean}
  */
-var isPowerOfThree = function(n) {
-  'use strict';
-
-  return ((n > 0) && (1162261467 % n === 0));
-};
+const isPowerOfThree = (n) => ((n > 0) && (1162261467 % n === 0))

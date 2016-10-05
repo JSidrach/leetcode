@@ -11,6 +11,8 @@ Given the following binary tree,
 You should return [1, 3, 4].
 */
 
+'use strict'
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -22,34 +24,32 @@ You should return [1, 3, 4].
  * @param {TreeNode} root
  * @return {number[]}
  */
-var rightSideView = function(root) {
-  'use strict';
-
+const rightSideView = function(root) {
   if (root === null) {
-    return [];
+    return []
   }
 
-  let output = [];
-  let list = [root];
-  let listLength = 1;
+  const output = []
+  const list = [root]
+  let listLength = 1
 
   while (listLength !== 0) {
-    output.push(list[listLength - 1].val);
+    output.push(list[listLength - 1].val)
 
     for (let i = 0; i < listLength; ++i) {
-      const node = list.shift();
+      const node = list.shift()
 
       if (node.left !== null) {
-        list.push(node.left);
+        list.push(node.left)
       }
 
       if (node.right !== null) {
-        list.push(node.right);
+        list.push(node.right)
       }
     }
 
-    listLength = list.length;
+    listLength = list.length
   }
 
-  return output;
-};
+  return output
+}

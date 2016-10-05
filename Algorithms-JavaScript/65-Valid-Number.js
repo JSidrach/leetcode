@@ -10,56 +10,56 @@ Some examples:
 Note: It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.
 */
 
+'use strict'
+
 /**
  * @param {string} s
  * @return {boolean}
  */
-var isNumber = function(s) {
-  'use strict';
-
-  let i = 0;
-  let j = 0;
-  let z = 1;
+const isNumber = function(s) {
+  let i = 0
+  let j = 0
+  let z = 1
 
   while (s[i] === ' ') {
-    ++i;
+    ++i
   }
 
   if ((s[i] === '-') || (s[i] === '+')) {
-    ++i;
+    ++i
   }
 
   while ((s[i] >= '0') && (s[i] <= '9')) {
     ++i;
-    ++j;
+    ++j
   }
 
   if (s[i] === '.') {
-    ++i;
+    ++i
   }
 
   while ((s[i] >= '0') && (s[i] <= '9')) {
     ++i;
-    ++j;
+    ++j
   }
 
   if (s[i] === 'e') {
-    ++i;
-    z = 0;
+    ++i
+    z = 0
 
     if ((s[i] === '-') || (s[i] === '+')) {
-      ++i;
+      ++i
     }
 
     while ((s[i] >= '0') && (s[i] <= '9')) {
       ++i;
-      ++z;
+      ++z
     }
   }
 
   while (s[i] === ' ') {
-    ++i;
+    ++i
   }
 
-  return ((j !== 0) && (z !== 0) && (i === s.length));
-};
+  return ((j !== 0) && (z !== 0) && (i === s.length))
+}

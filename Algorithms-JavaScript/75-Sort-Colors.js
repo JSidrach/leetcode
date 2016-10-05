@@ -7,36 +7,36 @@ Note:
 You are not suppose to use the library's sort function for this problem.
 */
 
+'use strict'
+
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var sortColors = function(nums) {
-  'use strict';
+const sortColors = function(nums) {
+  const red = 0
+  const white = 1
 
-  const red = 0;
-  const white = 1;
-
-  let indexRed = 0;
-  let indexWhite = 0;
-  let indexBlue = nums.length - 1;
+  let indexRed = 0
+  let indexWhite = 0
+  let indexBlue = nums.length - 1
 
   while (indexWhite <= indexBlue) {
-    const nextColor = nums[indexWhite];
+    const nextColor = nums[indexWhite]
 
     if (nextColor === red) {
-      nums[indexWhite] = nums[indexRed];
+      nums[indexWhite] = nums[indexRed]
       nums[indexRed] = nextColor;
       ++indexRed;
-      ++indexWhite;
+      ++indexWhite
     }
     else if (nextColor === white) {
-      ++indexWhite;
+      ++indexWhite
     }
     else {
-      nums[indexWhite] = nums[indexBlue];
+      nums[indexWhite] = nums[indexBlue]
       nums[indexBlue] = nextColor;
-      --indexBlue;
+      --indexBlue
     }
   }
-};
+}

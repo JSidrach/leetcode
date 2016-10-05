@@ -11,58 +11,50 @@ Depending on your language, stack may not be supported natively. You may simulat
 You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).
 */
 
+'use strict'
+
 /**
  * @constructor
  */
-var Queue = function() {
-  'use strict';
-
-  this.stack = [];
-};
+const Queue = function() {
+  this.stack = []
+}
 
 /**
  * @param {number} x
  * @returns {void}
  */
 Queue.prototype.push = function(x) {
-  'use strict';
-
-  let tmpStack = [];
+  const tmpStack = []
 
   while (this.stack.length !== 0) {
-    tmpStack.push(this.stack.pop());
+    tmpStack.push(this.stack.pop())
   }
 
-  this.stack.push(x);
+  this.stack.push(x)
 
   while (tmpStack.length !== 0) {
-    this.stack.push(tmpStack.pop());
+    this.stack.push(tmpStack.pop())
   }
-};
+}
 
 /**
  * @returns {void}
  */
 Queue.prototype.pop = function() {
-  'use strict';
-
-  this.stack.pop();
-};
+  this.stack.pop()
+}
 
 /**
  * @returns {number}
  */
 Queue.prototype.peek = function() {
-  'use strict';
-
-  return this.stack[this.stack.length - 1];
-};
+  return this.stack[this.stack.length - 1]
+}
 
 /**
  * @returns {boolean}
  */
 Queue.prototype.empty = function() {
-  'use strict';
-
-  return (this.stack.length === 0);
-};
+  return (this.stack.length === 0)
+}
