@@ -20,11 +20,5 @@ So you should return 1, because there is only one bulb is on.
  * @return {number}
  */
 const bulbSwitch = function(n) {
-  let bulbs = 0
-
-  for (let i = 1; (i * i) <= n; ++i) {
-    ++bulbs
-  }
-
-  return bulbs
+  return Math.floor(Math.sqrt(n))
 }

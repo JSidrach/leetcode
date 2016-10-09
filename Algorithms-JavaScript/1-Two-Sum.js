@@ -25,8 +25,6 @@ const twoSum = function(nums, target) {
     if (typeof visited[target - num] !== 'undefined') {
       return [visited[target - num], i + 1]
     }
-    else {
-      visited[nums[i]] = i + 1
-    }
+    visited[nums[i]] = i + 1
   }
 }
