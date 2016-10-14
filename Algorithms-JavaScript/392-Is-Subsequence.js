@@ -35,7 +35,7 @@ const isSubsequence = function(s, t) {
   while ((is < s.length) && (it < t.length)) {
     const c = s[is]
 
-    while ((c !== t[it]) && (it < t.length)) {
+    while ((it < t.length) && (c !== t[it])) {
       ++it
     }
 
