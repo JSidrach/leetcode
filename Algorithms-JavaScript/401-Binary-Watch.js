@@ -25,8 +25,8 @@ Note:
  * @return {string[]}
  */
 const readBinaryWatch = function(num) {
-  const generateCombinations = function(nums, n) {
-    if (n > nums.length) {
+  const generateCombinations = function(nums, n, min) {
+    if (n > nums.length - min) {
       return []
     }
 
@@ -35,16 +35,16 @@ const readBinaryWatch = function(num) {
     }
 
     if (n === 1) {
-      return nums
+      return nums.slice(min)
     }
 
-    const used = nums.pop()
-    const rest = generateCombinations(nums.slice(), n - 1).map((n) => n + used)
+    const used = nums[min]
+    const rest = generateCombinations(nums, n - 1, min + 1).map((n) => n + used)
 
-    return generateCombinations(nums, n).concat(rest)
+    return generateCombinations(nums, n, min + 1).concat(rest)
   }
 
-  const numbers = generateCombinations([1, 2, 4, 8, 16, 32, 64, 128, 256, 512], num)
+  const numbers = generateCombinations([1, 2, 4, 8, 16, 32, 64, 128, 256, 512], num, 0)
   const times = numbers.filter(function(n) {
     const hours = Math.floor(n / 64)
     const minutes = n % 64
