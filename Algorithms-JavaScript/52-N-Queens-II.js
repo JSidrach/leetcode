@@ -11,18 +11,15 @@ Now, instead outputting board configurations, return the total number of distinc
  * @return {number}
  */
 const totalNQueens = function(n) {
-  const validBoard = function(queens) {
-    for (let i = 0; i < queens.length; ++i) {
-      const queen1 = queens[i]
-
-      for (let j = i + 1; j < queens.length; ++j) {
-        const queen2 = queens[j]
-
-        if ((queen1 === queen2) ||
-           ((queen1 - i) === (queen2 - j)) ||
-           ((queen1 + i) === (queen2 + j))) {
+  const validBoard = function(queens, pos) {
+    const queen1 = pos
+    const j = queens.length
+    for (let i = 0; i < j; ++i) {
+      const queen2 = queens[i]
+      if ((queen1 === queen2) ||
+          ((queen1 - i) === (queen2 - j)) ||
+          ((queen1 + i) === (queen2 + j))) {
           return false
-        }
       }
     }
 
@@ -31,11 +28,7 @@ const totalNQueens = function(n) {
 
   const nextQueen = function(queens, n, min) {
     for (let i = min; i < n; ++i) {
-      queens.push(i)
-      const valid = validBoard(queens)
-      queens.pop(i)
-
-      if (valid) {
+      if (validBoard(queens, i)) {
         return i
       }
     }
