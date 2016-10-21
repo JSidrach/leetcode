@@ -72,8 +72,8 @@ const solveNQueens = function(n) {
   }
 
   return sols.map(function(s) {
-    let b = []
-    let dots = '.'.repeat(s.length)
+    const b = []
+    const dots = '.'.repeat(s.length)
     s.forEach(function(queen) {
       b.push(dots.substr(0, queen) + 'Q' + dots.substr(queen + 1))
     })
