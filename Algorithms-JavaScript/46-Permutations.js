@@ -12,23 +12,24 @@ For example,
  * @param {number[]} nums
  * @return {number[][]}
  */
-const permute = (nums) => permutation(nums, 0, nums.length - 1)
+const permute = function(nums) {
+  const nl = nums.length
+  const sols = [[]]
 
-const permutation = function(nums, i, n) {
-  if (i === n) {
-    return [nums.slice()]
+  for (let i = 0; i < nl; ++i) {
+    const num = nums[i]
+    const sl = sols.length
+
+    for (let j = 0; j < sl; ++j) {
+      const prev = sols.shift()
+
+      for (let k = 0; k <= i; ++k) {
+        const add = prev.slice()
+        add.splice(k, 0, num)
+        sols.push(add)
+      }
+    }
   }
 
-  const output = []
-
-  for (let j = i; j <= n; ++j) {
-    const swap = nums[i]
-    nums[i] = nums[j]
-    nums[j] = swap
-    output.push.apply(output, permutation(nums, i + 1, n))
-    nums[j] = nums[i]
-    nums[i] = swap
-  }
-
-  return output
+  return sols
 }
