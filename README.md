@@ -12,3 +12,17 @@ My solutions for LeetCode problems (mostly in JavaScript)
 # License
 * Statemens of the problems are property of [LeetCode](https://leetcode.com/)
 * Solutions are realased under the [MIT License](LICENSE)
+
+# Hide locked problems
+* Copy, paste and execute the following into the JavaScript console in the browser (F12):
+
+```javascript
+const rows = document.querySelectorAll('.reactable-data tr')
+
+for (let i = 0; i < rows.length; ++i) {
+  const row = rows[i]
+  if (row.querySelector('.fa-lock')) {
+    row.remove()
+  }
+}
+```

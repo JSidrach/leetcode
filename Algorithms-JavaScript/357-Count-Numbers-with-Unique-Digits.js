@@ -14,32 +14,18 @@ Hint:
 
 'use strict'
 
-/**
- * @param {number} n
- * @return {number}
- */
 const countNumbersWithUniqueDigits = function(n) {
-  if (n === 0) {
-    return 1
-  }
-
-  if (n === 1) {
-    return 10
-  }
-
-  const digitsLengthN = function(n) {
-    let result = 9
-    while (n < 8) {
-      n++
-      result *= n
-    }
-
-    return result
-  }
-
   if (n > 10) {
-    return countNumbersWithUniqueDigits(10)
+    n = 10
   }
 
-  return countNumbersWithUniqueDigits(n - 1) + 9 * digitsLengthN(10 - n)
+  let prevDigits = 9
+  let total = 1
+
+  for (let i = 0; i < n; ++i) {
+    total += prevDigits
+    prevDigits *= (9 - i)
+  }
+
+  return total
 }

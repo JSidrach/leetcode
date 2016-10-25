@@ -39,7 +39,9 @@ const countBattleships = function(board) {
 
   for (let i = 0; i < board.length; ++i) {
     for (let j = 0; j < board[i].length; ++j) {
-      if ((board[i][j] === ship) && ((i === 0) || (board[i - 1][j] !== ship)) && ((j === 0) || (board[i][j - 1] !== ship))) {
+      if ((board[i][j] === ship) &&
+         ((i === 0) || (board[i - 1][j] !== ship)) &&
+         ((j === 0) || (board[i][j - 1] !== ship))) {
         ++count
       }
     }
