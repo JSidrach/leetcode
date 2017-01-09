@@ -1,4 +1,4 @@
-# LeetCode
+# LeetCode [Archived]
 My solutions for LeetCode problems (mostly in JavaScript)
 
 # Notes
